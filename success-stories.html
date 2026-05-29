@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Success Stories | Plotify</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: #ecf0f1;
+      color: #2c3e50;
+      padding: 0;
+      opacity: 0;
+      transition: opacity 0.8s ease-in-out;
+    }
+
+    body.fade-in {
+      opacity: 1;
+    }
+
+    header {
+      background-color: #2c3e50;
+      color: white;
+      padding: 20px 40px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+    }
+
+    header h1 {
+      font-size: 24px;
+      margin: 0;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 20px;
+    }
+
+    .nav-links a {
+      color: white;
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.3s;
+    }
+
+    .nav-links a:hover {
+      color: #1abc9c;
+    }
+
+    main {
+      padding: 40px 20px;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .story {
+      background: white;
+      border-left: 5px solid #8e44ad;
+      padding: 20px;
+      margin-bottom: 20px;
+      border-radius: 10px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+
+    .story h3 {
+      margin-bottom: 10px;
+      color: #2c3e50;
+    }
+
+    .story p {
+      font-style: italic;
+    }
+
+    .submit-button {
+      display: block;
+      width: fit-content;
+      margin: 40px auto 0;
+      text-decoration: none;
+      background: #3806ee;
+      color: white;
+      padding: 10px 20px;
+      border-radius: 5px;
+      font-weight: bold;
+      transition: background 0.3s;
+    }
+
+    .submit-button:hover {
+      background: #732d91;
+    }
+
+    footer {
+      background-color: #2c3e50;
+      color: white;
+      text-align: center;
+      padding: 15px;
+      margin-top: 40px;
+    }
+
+    footer p {
+      margin: 0;
+      font-size: 14px;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Plotify</h1>
+    <nav class="nav-links">
+      <a href="plotify1.html">Home</a>
+      <a href="privacy-policy.html">Privacy Policy</a>
+      <a href="contactsupport.html">Contact Us</a>
+      <a href="help.html">Help</a>
+      <a href="feedback.html">Feedback</a>
+    </nav>
+  </header>
+
+  <main>
+    <div class="story">
+      <h3>Ramesh P., Pune</h3>
+      <p>"I sold my farmland within 3 weeks using Plotify. The platform made it super easy!"</p>
+    </div>
+
+    <div class="story">
+      <h3>Anita K., Nagpur</h3>
+      <p>"Found the perfect NA plot for my dream home. The verified listing saved me a lot of time and stress."</p>
+    </div>
+
+    <div class="story">
+      <h3>Sunil D., Nashik</h3>
+      <p>"As a first-time seller, I was nervous. Plotify’s support and simple UI helped me sell confidently."</p>
+    </div>
+
+    <div class="story">
+      <h3>Neha S., Aurangabad</h3>
+      <p>"The user-friendly design made it easy to compare plots. I found my investment property within a day!"</p>
+    </div>
+
+    <div class="story">
+      <h3>Vikram T., Kolhapur</h3>
+      <p>"After listing my plot on Plotify, I got genuine leads within 48 hours. No more brokers and fake calls!"</p>
+    </div>
+
+    <div class="story">
+      <h3>Savita G., Thane</h3>
+      <p>"The verification process gave me peace of mind. I confidently bought a plot near Karjat without visiting."</p>
+    </div>
+
+    <div class="story">
+      <h3>Aamir R., Navi Mumbai</h3>
+      <p>"Plotify gave me access to listings that weren’t on other sites. I closed my deal at a great price."</p>
+    </div>
+
+    <div class="story">
+      <h3>Manoj L., Satara</h3>
+      <p>"Their customer support is excellent. They guided me on legal checks before I finalized my land deal."</p>
+    </div>
+
+    <a href="share-story.html" class="submit-button">Share Your Story</a>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 Plotify. All rights reserved.</p>
+  </footer>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      document.body.classList.add("fade-in");
+    });
+
+    document.querySelectorAll("a").forEach(link => {
+      if (!link.href.includes("#") && link.target !== "_blank") {
+        link.addEventListener("click", function (e) {
+          e.preventDefault();
+          const url = this.href;
+          document.body.classList.remove("fade-in");
+          document.body.style.opacity = 0;
+          setTimeout(() => window.location.href = url, 400);
+        });
+      }
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Plotify | Explore Plots</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #f4f6f7;
+      opacity: 0;
+      animation: fadeIn 1s ease forwards;
+      transition: opacity 0.4s ease;
+      position: relative;
+      min-height: 100vh;
+      z-index: 0;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    @keyframes fadeOut {
+      from { opacity: 1; }
+      to { opacity: 0; }
+    }
+
+    .fade-out {
+      animation: fadeOut 0.4s ease forwards;
+    }
+
+    header {
+      background-color: #2c3e50;
+      color: white;
+      padding: 20px 30px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      position: relative;
+      z-index: 2;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+    }
+
+    .logo img {
+      height: 50px;
+      margin-right: 15px;
+    }
+
+    .logo h1 {
+      font-size: 26px;
+      color: aliceblue;
+    }
+
+    .tagline {
+      font-size: 13px;
+      color: #bdc3c7;
+    }
+
+    nav {
+      display: flex;
+      gap: 15px;
+      flex-wrap: wrap;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+      padding: 8px 15px;
+      border-radius: 5px;
+      transition: background-color 0.3s ease;
+    }
+
+    nav a:hover {
+      background-color: #1abc9c;
+    }
+
+    .menu-toggle {
+      display: none;
+      font-size: 26px;
+      cursor: pointer;
+    }
+
+    @media (max-width: 768px) {
+      nav {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        background-color: #34495e;
+        margin-top: 10px;
+      }
+
+      nav a {
+        margin: 10px 0;
+        padding: 10px 20px;
+      }
+
+      nav.active {
+        display: flex;
+      }
+
+      .menu-toggle {
+        display: block;
+      }
+    }
+
+    .container {
+      max-width: 1000px;
+      margin: 30px auto;
+      padding: 20px;
+      background-color: white;
+      border-radius: 12px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      position: relative;
+      z-index: 2;
+    }
+
+    .plot-card {
+      background-color: #ffffff;
+      border-radius: 12px;
+      padding: 20px;
+      margin-bottom: 30px;
+      box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .plot-card:hover {
+      transform: scale(1.02);
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
+    }
+
+    .plot-card img {
+      max-width: 100%;
+      height: auto;
+      margin-top: 15px;
+      border-radius: 8px;
+    }
+
+    .plot-card b {
+      color: #2c3e50;
+    }
+
+    h1 {
+      color: #2c3e50;
+    }
+
+    .pagination {
+      display: flex;
+      justify-content: center;
+      margin-top: 40px;
+      gap: 10px;
+    }
+
+    .pagination a {
+      color: #2c3e50;
+      text-decoration: none;
+      padding: 10px 18px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      font-weight: bold;
+      transition: background-color 0.3s ease, color 0.3s ease;
+    }
+
+    .pagination a:hover,
+    .pagination .active {
+      background-color: #1abc9c;
+      color: white;
+      border-color: #1abc9c;
+    }
+
+    footer {
+      background-color: #2c3e50;
+      color: white;
+      padding: 30px 40px;
+      margin-top: 50px;
+      position: relative;
+      z-index: 2;
+    }
+
+    footer a {
+      color: white;
+      text-decoration: none;
+    }
+
+    footer a:hover {
+      text-decoration: underline;
+    }
+
+    .footer-content {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 30px;
+      max-width: 1100px;
+      margin: auto;
+    }
+
+    .footer-section {
+      flex: 1;
+      min-width: 220px;
+    }
+
+    .footer-bottom {
+      text-align: center;
+      margin-top: 30px;
+      font-size: 14px;
+      color: #bdc3c7;
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <div class="logo">
+    <img src="assets/images/plotify.png" alt="Plotify Logo">
+
+    <div>
+      <h1>Plotify</h1>
+      <div class="tagline">Turning Plots Into Prosperity</div>
+    </div>
+  </div>
+
+  <div class="menu-toggle" onclick="toggleMenu()">☰</div>
+
+  <nav id="nav-menu">
+    <a href="dashboard.html" onclick="fadeAndRedirect(event)">Back</a>
+  </nav>
+</header>
+
+<div class="container">
+
+  <center>
+    <h1>Find the Perfect Piece of Land</h1>
+  </center>
+
+  <br><br>
+
+  <div class="plot-card">
+    <b> Location:</b> Talegaon Dabhade, Pune<br>
+    <b> Size:</b> 2,400 sq. ft.<br>
+    <b> Owner:</b> Mr. Rajesh Jadhav<br>
+    <b> Contact:</b> +91 98237 45620<br>
+    <b> 7/12 उतारा क्रमांक:</b> MH/PN/2024/00011<br>
+    <b> नोंदणी क्रमांक:</b> REG-00011-2024<br>
+    <b> Description:</b> A rare opportunity to own land in a fast-growing neighborhood surrounded by modern homes, daily conveniences, and future-ready infrastructure.<br>
+    <b> Starting Price:</b> ₹ 43.2 L<br>
+
+    <img src="assets/images/img1.jpg" alt="Plot Image 1">
+  </div>
+
+  <div class="plot-card">
+    <b> Location:</b> Shahapur, Thane District<br>
+    <b> Size:</b> 10,000 sq. ft.<br>
+    <b> Owner:</b> Mrs. Meena Patil<br>
+    <b> Contact:</b> +91 88567 98321<br>
+    <b> 7/12 उतारा क्रमांक:</b> MH/PJ/2024/00054<br>
+    <b> नोंदणी क्रमांक:</b> REG-00012-2024<br>
+    <b> Description:</b> Located minutes away from the main road, this plot offers unmatched connectivity and calm surroundings.<br>
+    <b> Starting Price:</b> ₹ 1.8 Cr<br>
+
+    <img src="assets/images/img2.jpg" alt="Plot Image 2">
+  </div>
+
+  <div class="plot-card">
+    <b> Location:</b> Karjat, Raigad<br>
+    <b> Size:</b> 5,500 sq. ft.<br>
+    <b> Owner:</b> Mr. Vikram Deshmukh<br>
+    <b> Contact:</b> +91 97645 77820<br>
+    <b> 7/12 उतारा क्रमांक:</b> MH/PK/2024/00031<br>
+    <b> नोंदणी क्रमांक:</b> REG-00015-2024<br>
+    <b> Description:</b> This beautifully positioned land is perfect for a farmhouse or a second home, surrounded by nature.<br>
+    <b> Starting Price:</b> ₹ 99 L<br>
+
+    <img src="assets/images/img3.jpg" alt="Plot Image 3">
+  </div>
+
+  <div class="plot-card">
+    <b> Location:</b> Satara Road, Kolhapur<br>
+    <b> Size:</b> 3,200 sq. ft.<br>
+    <b> Owner:</b> Mrs. Sunita Pawar<br>
+    <b> Contact:</b> +91 91345 00912<br>
+    <b> 7/12 उतारा क्रमांक:</b> MH/PN/2024/00021<br>
+    <b> नोंदणी क्रमांक:</b> REG-00011-2024<br>
+    <b> Description:</b> Commercial land near a busy market — ideal for shops, showrooms, or rental spaces.<br>
+    <b> Starting Price:</b> ₹ 57.6 L<br>
+
+    <img src="assets/images/img6.webp" alt="Plot Image 4">
+  </div>
+
+  <div class="plot-card">
+    <b> Location:</b> Paithan Road, Aurangabad<br>
+    <b> Size:</b> 1 acre<br>
+    <b> Owner:</b> Mr. Shrikant Shinde<br>
+    <b> Contact:</b> +91 98906 32145<br>
+    <b> 7/12 उतारा क्रमांक:</b> MH/PN/2024/00081<br>
+    <b> नोंदणी क्रमांक:</b> REG-00061-2024<br>
+    <b> Description:</b> In a peaceful residential zone with wide roads and new homes. Ideal for villas or duplexes.<br>
+    <b> Starting Price:</b> ₹ 7.84 Cr<br>
+
+    <img src="assets/images/img100.webp" alt="Plot Image 5">
+  </div>
+
+</div>
+
+<div class="pagination">
+  <a class="active" href="#">1</a>
+  <a href="exploreplots2.html">2</a>
+  <a href="exploreplots3.html">3</a>
+</div>
+
+<footer>
+
+  <div class="footer-content">
+
+    <div class="footer-section">
+      <h3>Plotify</h3>
+      <p>Turning Plots Into Prosperity</p>
+      <p>Your trusted land listing platform across India.</p>
+    </div>
+
+    <div class="footer-section">
+      <h4>Quick Links</h4>
+
+      <ul style="list-style: none; padding: 0;">
+        <li><a href="exploreplots.html" onclick="fadeAndRedirect(event)">Explore Plots</a></li>
+        <li><a href="listproperty.html" onclick="fadeAndRedirect(event)">List Property</a></li>
+        <li><a href="success-stories.html" onclick="fadeAndRedirect(event)">Success Stories</a></li>
+        <li><a href="help.html" onclick="fadeAndRedirect(event)">Help Center</a></li>
+        <li><a href="privacy.html" onclick="fadeAndRedirect(event)">Privacy Policy</a></li>
+        <li><a href="terms.html" onclick="fadeAndRedirect(event)">Terms & Conditions</a></li>
+        <li><a href="login.html" onclick="fadeAndRedirect(event)">Login</a></li>
+        <li><a href="register.html" onclick="fadeAndRedirect(event)">Register</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-section">
+      <h4>Contact Us</h4>
+      <p>Email: support@plotify.in</p>
+      <p>Phone: +91 9579567490</p>
+      <p>Address: Pune-411021, Maharashtra, India</p>
+    </div>
+
+  </div>
+
+  <div class="footer-bottom">
+    &copy; 2025 Plotify. All rights reserved.
+  </div>
+
+</footer>
+
+<script>
+  function toggleMenu() {
+    document.getElementById("nav-menu").classList.toggle("active");
+  }
+
+  function fadeAndRedirect(event) {
+    event.preventDefault();
+
+    const url = event.target.href;
+
+    document.body.classList.add("fade-out");
+
+    setTimeout(() => {
+      window.location.href = url;
+    }, 400);
+  }
+</script>
+
+</body>
+</html>

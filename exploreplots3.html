@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Plotify | Explore Plots</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #f5f7f9;
+      opacity: 0;
+      animation: fadeIn 1.2s ease forwards;
+    }
+
+    @keyframes fadeIn {
+      to {
+        opacity: 1;
+      }
+    }
+
+    header {
+      background-color: #2c3e50;
+      color: white;
+      padding: 20px 30px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+    }
+
+    .logo img {
+      height: 50px;
+      margin-right: 15px;
+    }
+
+    .logo h1 {
+      font-size: 26px;
+      color: white;
+    }
+
+    .tagline {
+      font-size: 13px;
+      color: #bdc3c7;
+    }
+
+    .container {
+      max-width: 1000px;
+      margin: 30px auto;
+      padding: 20px;
+    }
+
+    h1 {
+      color: #2c3e50;
+      text-align: center;
+      margin-bottom: 40px;
+      animation: fadeIn 1s ease-in-out;
+    }
+
+    .plot-card {
+      background-color: #ffffff;
+      border-radius: 12px;
+      padding: 20px;
+      margin-bottom: 30px;
+      box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      animation: fadeInUp 1s ease;
+    }
+
+    .plot-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
+    }
+
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .plot-card img {
+      max-width: 100%;
+      height: auto;
+      margin-top: 15px;
+      border-radius: 8px;
+    }
+
+    .plot-card b {
+      color: #2c3e50;
+    }
+
+    .coming-soon {
+      text-align: center;
+      font-size: 20px;
+      font-weight: bold;
+      color: #555;
+      margin-top: 50px;
+    }
+
+    .pagination {
+      display: flex;
+      justify-content: center;
+      margin-top: 40px;
+      gap: 10px;
+    }
+
+    .pagination a {
+      color: #2c3e50;
+      text-decoration: none;
+      padding: 10px 18px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      font-weight: bold;
+      transition: background-color 0.3s ease, color 0.3s ease;
+    }
+
+    .pagination a:hover {
+      background-color: #1abc9c;
+      color: white;
+    }
+
+    .pagination .active {
+      background-color: #1abc9c;
+      color: white;
+      border: 1px solid #1abc9c;
+    }
+
+    footer {
+      background-color: #2c3e50;
+      color: white;
+      padding: 40px 20px 20px 20px;
+      margin-top: 60px;
+    }
+
+    .footer-content {
+      max-width: 1100px;
+      margin: auto;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 30px;
+    }
+
+    .footer-section {
+      flex: 1;
+      min-width: 220px;
+    }
+
+    .footer-bottom {
+      text-align: center;
+      margin-top: 30px;
+      font-size: 14px;
+      color: #bdc3c7;
+    }
+
+    @media (max-width: 768px) {
+      header,
+      .container {
+        padding: 15px;
+      }
+
+      .footer-content {
+        flex-direction: column;
+        text-align: center;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+
+  <div class="logo">
+
+    <img src="assets/images/plotify.png" alt="Plotify Logo" />
+
+    <div>
+      <h1>Plotify</h1>
+      <div class="tagline">Turning Plots Into Prosperity</div>
+    </div>
+
+  </div>
+
+</header>
+
+<div class="container">
+
+  <h1>Find the Perfect Piece of Land</h1>
+
+  <div class="plot-card">
+    <b> Location:</b> Hinjewadi Phase 3, Pune<br>
+    <b> Size:</b> 5,000 sq. ft.<br>
+    <b> Owner:</b> Mr. Rajesh Dhamale<br>
+    <b> Contact:</b> +91 98231 45678<br>
+    <b> 7/12 उतारा क्रमांक:</b> MH/PN/2024/00011<br>
+    <b> नोंदणी क्रमांक:</b> REG-00011-2024<br>
+    <b> Description:</b> Near IT parks and residential towers, ideal for mixed-use development.<br>
+    <b> Starting Price:</b> ₹ 94 L<br>
+
+    <img src="assets/images/img21.webp" width="600" height="400" alt="Plot Image">
+  </div>
+
+  <div class="plot-card">
+    <b> Location:</b> Kothrud, Pune<br>
+    <b> Size:</b> 8,400 sq. ft.<br>
+    <b> Owner:</b> Mr. Shubham Khatri<br>
+    <b> Contact:</b> +91 99880 12345<br>
+    <b> 7/12 उतारा क्रमांक:</b> MH/PN/2024/00001<br>
+    <b> नोंदणी क्रमांक:</b> REG-00011-2024<br>
+    <b> Description:</b> Ideal for homes, walkable to markets and schools.<br>
+    <b> Starting Price:</b> ₹ 1.45 Cr<br>
+
+    <img src="assets/images/img22.jpg" width="600" height="400" alt="Plot Image">
+  </div>
+
+  <div class="plot-card">
+    <b> Location:</b> Shegaon, Maharashtra<br>
+    <b> Size:</b> 7,000 sq. ft.<br>
+    <b> Owner:</b> Mr. Nikhil Gole<br>
+    <b> Contact:</b> +91 96385 98765<br>
+    <b> 7/12 उतारा क्रमांक:</b> MH/PN/2024/00051<br>
+    <b> नोंदणी क्रमांक:</b> REG-00011-2024<br>
+    <b> Description:</b> Close to highway, perfect for warehouse or farmhouse investment.<br>
+    <b> Starting Price:</b> ₹ 82 L<br>
+
+    <img src="assets/images/img22.jpg" width="600" height="400" alt="Plot Image">
+  </div>
+
+  <div class="plot-card">
+    <b> Location:</b> Nashik Road, Nashik<br>
+    <b> Size:</b> 3,600 sq. ft.<br>
+    <b> Owner:</b> Ms. Snehal Kadam<br>
+    <b> Contact:</b> +91 97650 87654<br>
+    <b> 7/12 उतारा क्रमांक:</b> MH/PN/2024/00001<br>
+    <b> नोंदणी क्रमांक:</b> REG-00011-2024<br>
+    <b> Description:</b> Fully developed area with all basic infrastructure.<br>
+    <b> Starting Price:</b> ₹ 64.8 L<br>
+
+    <img src="assets/images/img24.jpg" width="600" height="400" alt="Plot Image">
+  </div>
+
+  <div class="plot-card">
+    <b> Location:</b> Sanand, Ahmedabad<br>
+    <b> Size:</b> 1 acre<br>
+    <b> Owner:</b> Ms. Krupa Bhatt<br>
+    <b> Contact:</b> +91 98123 45670<br>
+    <b> 7/12 उतारा क्रमांक:</b> MH/PN/2024/00011<br>
+    <b> नोंदणी क्रमांक:</b> REG-00011-2024<br>
+    <b> Description:</b> Close to industrial zones, good for development.<br>
+    <b> Starting Price:</b> ₹ 12.9 Cr<br>
+
+    <img src="assets/images/img24.jpg" width="600" height="400" alt="Plot Image">
+  </div>
+
+  <div class="plot-card">
+    <b> Location:</b> Lohegaon, Pune<br>
+    <b> Size:</b> 1 acre<br>
+    <b> Owner:</b> Mr. Amol Jagtap<br>
+    <b> Contact:</b> +91 98761 23456<br>
+    <b> 7/12 उतारा क्रमांक:</b> MH/PN/2024/00002<br>
+    <b> नोंदणी क्रमांक:</b> REG-00011-2010<br>
+    <b> Description:</b> Close to airport, ideal for resorts or villas.<br>
+    <b> Starting Price:</b> ₹ 12.8 Cr<br>
+
+    <img src="assets/images/img26.jpg" width="600" height="400" alt="Plot Image">
+  </div>
+
+  <div class="coming-soon">
+    More Plots Coming Soon...
+  </div>
+
+</div>
+
+<div class="pagination">
+  <a href="exploreplots.html">1</a>
+  <a href="exploreplots2.html">2</a>
+  <a href="exploreplots3.html" class="active">3</a>
+</div>
+
+<footer>
+
+  <div class="footer-content">
+
+    <div class="footer-section">
+      <h3>Plotify</h3>
+      <p>Turning Plots Into Prosperity</p>
+      <p>Your trusted platform to buy, sell, and explore verified land listings across India.</p>
+    </div>
+
+    <div class="footer-section">
+      <h4>Contact Us</h4>
+      <p>Email: support@plotify.in</p>
+      <p>Phone: +91 9579567490</p>
+      <p>Address: Pune-411021, Maharashtra, India</p>
+    </div>
+
+  </div>
+
+  <div class="footer-bottom">
+    &copy; 2025 Plotify. All rights reserved.
+  </div>
+
+</footer>
+
+</body>
+</html>

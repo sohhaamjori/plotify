@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Login | Plotify</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: linear-gradient(to right, #2c3e50, #34495e);
+      color: white;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+
+    .form-container {
+      background: rgba(255, 255, 255, 0.1);
+      padding: 30px;
+      border-radius: 10px;
+      backdrop-filter: blur(5px);
+    }
+
+    input, button {
+      width: 100%;
+      padding: 10px;
+      margin: 10px 0;
+      border: none;
+      border-radius: 6px;
+    }
+
+    input {
+      background-color: #ecf0f1;
+      color: #2c3e50;
+    }
+
+    button {
+      background-color: #1abc9c;
+      color: white;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #16a085;
+    }
+
+    .link {
+      color: #1abc9c;
+      text-decoration: none;
+      display: block;
+      margin-top: 10px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="form-container">
+    <h2>Login to Plotify</h2>
+    <input type="email" id="email" placeholder="Email" required>
+    <input type="password" id="password" placeholder="Password" required>
+    <button onclick="login()">Login</button>
+    <a class="link" href="register.html">Don't have an account? Register</a>
+  </div>
+
+  <script>
+    function login() {
+      const email = document.getElementById("email").value.trim();
+      const password = document.getElementById("password").value;
+
+      const stored = localStorage.getItem("plotifyUser");
+      if (!stored) {
+        alert("No registered user found. Please register first.");
+        return;
+      }
+
+      const user = JSON.parse(stored);
+      if (user.email === email && user.password === password) {
+        alert("Login successful!");
+        window.location.href = "dashboard.html";
+      } else {
+        alert("Incorrect email or password.");
+      }
+    }
+  </script>
+
+</body>
+</html>

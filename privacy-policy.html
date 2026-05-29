@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Privacy Policy | Plotify</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #f4f6f7;
+      color: #2c3e50;
+      opacity: 0;
+      animation: fadeIn 0.8s ease forwards;
+      transition: opacity 0.4s ease;
+      min-height: 100vh;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    @keyframes fadeOut {
+      from { opacity: 1; }
+      to { opacity: 0; }
+    }
+
+    .fade-out {
+      animation: fadeOut 0.4s ease forwards;
+    }
+
+    header {
+      background-color: #2c3e50;
+      color: white;
+      padding: 20px 30px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+    }
+
+    .logo img {
+      height: 50px;
+      margin-right: 15px;
+    }
+
+    .logo h1 {
+      font-size: 26px;
+      color: aliceblue;
+    }
+
+    .tagline {
+      font-size: 13px;
+      color: #bdc3c7;
+    }
+
+    nav {
+      display: flex;
+      gap: 15px;
+      flex-wrap: wrap;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+      padding: 8px 15px;
+      border-radius: 5px;
+      transition: background-color 0.3s ease;
+    }
+
+    nav a:hover {
+      background-color: #1abc9c;
+    }
+
+    .menu-toggle {
+      display: none;
+      font-size: 26px;
+      cursor: pointer;
+    }
+
+    @media (max-width: 768px) {
+      nav {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        background-color: #34495e;
+        margin-top: 10px;
+      }
+
+      nav a {
+        margin: 10px 0;
+        padding: 10px 20px;
+      }
+
+      nav.active {
+        display: flex;
+      }
+
+      .menu-toggle {
+        display: block;
+      }
+    }
+
+    main {
+      padding: 40px 20px;
+      max-width: 900px;
+      margin: auto;
+      background-color: white;
+      border-radius: 12px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    h1, h2 {
+      color: #2980b9;
+      margin-bottom: 15px;
+    }
+
+    p {
+      line-height: 1.6;
+      margin-bottom: 15px;
+    }
+
+    footer {
+      background-color: #2c3e50;
+      color: white;
+      padding: 30px 40px;
+      margin-top: 50px;
+    }
+
+    footer a {
+      color: white;
+      text-decoration: none;
+    }
+
+    footer a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="logo">
+    <img src="c:/Users/OLDCONF/Desktop/plotify/plotify.png" alt="Plotify Logo">
+    <div>
+      <h1>Plotify</h1>
+      <div class="tagline">Turning Plots Into Prosperity</div>
+    </div>
+  </div>
+  <div class="menu-toggle" onclick="toggleMenu()">☰</div>
+  <nav id="nav-menu">
+    <a href="plotify1.html" onclick="fadeAndRedirect(event)">Home</a>
+    <a href="contactsupport.html" onclick="fadeAndRedirect(event)">Contact Us</a>
+    <a href="help.html" onclick="fadeAndRedirect(event)">Help Centre</a>
+    <a href="success-stories.html" onclick="fadeAndRedirect(event)">Success Stories</a>
+    <a href="feedback.html" onclick="fadeAndRedirect(event)">Feedback</a>
+  </nav>
+</header>
+<br><br>
+<main>
+  <h1>Privacy Policy</h1>
+  <p>At Plotify, we are committed to protecting your privacy. This policy outlines how we collect, use, and safeguard your information.</p>
+
+  <h2>Information We Collect</h2>
+  <p>We collect information you provide, such as name, email, phone number, and plot preferences. We may also collect data automatically through cookies and analytics tools.</p>
+
+  <h2>How We Use Your Data</h2>
+  <p>Your data helps us provide personalized experiences, respond to inquiries, and improve our services. We never sell your data to third parties.</p>
+
+  <h2>Security</h2>
+  <p>We use standard encryption and secure servers to protect your data. However, no method of transmission is 100% secure.</p>
+
+  <h2>Contact</h2>
+  <p>For any privacy-related questions, email us at privacy@plotify.in</p>
+</main>
+
+<footer>
+  <div style="display: flex; flex-wrap: wrap; justify-content: space-between;">
+    <div style="flex: 1; min-width: 200px;">
+      <h3>Plotify</h3>
+      <p>Turning Plots Into Prosperity</p>
+      <p>Your trusted land listing platform across India.</p>
+    </div>
+
+    <div style="flex: 1; min-width: 200px;">
+      <h4>Quick Links</h4>
+      <ul style="list-style: none; padding: 0;">
+        <li><a href="contactsupport.html" onclick="fadeAndRedirect(event)">Contact Us</a></li>
+        <li><a href="help.html" onclick="fadeAndRedirect(event)">Help Centre</a></li>
+        <li><a href="success-stories.html" onclick="fadeAndRedirect(event)">Success Stories</a></li>
+        <li><a href="feedback.html" onclick="fadeAndRedirect(event)">Feedback</a></li>
+      </ul>
+    </div>
+
+    <div style="flex: 1; min-width: 200px;">
+      <h4>Contact Us</h4>
+      <p>Email: support@plotify.in</p>
+      <p>Phone: +91 9579567490</p>
+      <p>Address: Pune-411021, Maharashtra, India</p>
+    </div>
+  </div>
+  <br>
+  <center>
+    <p>&copy; 2025 Plotify. All rights reserved.</p>
+  </center>
+</footer>
+
+<script>
+  function toggleMenu() {
+    document.getElementById("nav-menu").classList.toggle("active");
+  }
+
+  function fadeAndRedirect(event) {
+    event.preventDefault();
+    const url = event.target.href;
+    document.body.classList.add("fade-out");
+    setTimeout(() => window.location.href = url, 400);
+  }
+</script>
+
+</body>
+</html>

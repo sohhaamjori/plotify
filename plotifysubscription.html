@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Subscribe - Plotify</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: #f0f0f5;
+      padding: 40px;
+      text-align: center;
+    }
+    .container {
+      background: #fff;
+      padding: 30px;
+      max-width: 600px;
+      margin: auto;
+      border-radius: 12px;
+      box-shadow: 0 0 15px rgba(0,0,0,0.1);
+    }
+    h1 {
+      color: #2c3e50;
+    }
+    .qr-box {
+      margin: 20px 0;
+    }
+    .pay-btn, .done-btn {
+      display: inline-block;
+      padding: 12px 20px;
+      background-color: #2c3e50;
+      color: white;
+      text-decoration: none;
+      border-radius: 5px;
+      margin-top: 15px;
+      cursor: pointer;
+    }
+    .pay-btn:hover, .done-btn:hover {
+      background-color: #1abc9c;
+    }
+    p.note {
+      font-size: 14px;
+      color: #555;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1 id="pageTitle">Upgrade to Premium</h1>
+    <p id="payText">Pay ₹99 to unlock unlimited listings on Plotify</p>
+
+    <div class="qr-box">
+      <h3>📱 Scan this UPI QR Code</h3>
+      <img id="qrImage" src="" alt="UPI QR Code">
+      <p class="note">UPI ID: <strong id="upiId">plotify@upi</strong></p>
+    </div>
+    <a class="pay-btn" id="upiLink" href="#" target="_blank">Pay using UPI App</a>
+    <br><br>
+    <h3>💳 Prefer Card/Netbanking?</h3>
+    <a class="pay-btn" href="https://secure.paytm.in/link-example" target="_blank">Pay via Paytm Link</a>
+    <p class="note">You will be redirected to a secure Paytm page for card/netbanking.</p>
+    <br><br>
+    <button class="done-btn" onclick="confirmPayment()">I Have Paid</button>
+  </div>
+  <script>
+    const urlParams = new URLSearchParams(window.location.search);
+    const plan = urlParams.get("plan") || "Premium";
+    const amount = urlParams.get("amount") || "99";
+    const upiID = "yourupiid@bank";
+    document.getElementById("pageTitle").innerText = `Subscribe to ${plan}`;
+    document.getElementById("payText").innerText = `Pay ₹${amount} to unlock your ${plan} features`;
+    const upiURL = `upi://pay?pa=${upiID}&pn=Plotify&am=${amount}&cu=INR`;
+    document.getElementById("upiLink").href = upiURL;
+    const qrImageURL = `https://api.qrserver.com/v1/create-qr-code/?data=${encodeURIComponent(upiURL)}&size=200x200`;
+    document.getElementById("qrImage").src = qrImageURL;
+    function confirmPayment() {
+      localStorage.setItem("subscribed", "true");
+      alert("Subscription Activated!");
+      window.location.href = "dashboard.html";
+    }
+  </script>
+</body>
+</html>

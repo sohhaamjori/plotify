@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Thank You | Plotify</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #ecf0f1;
+      margin: 0;
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      transition: opacity 0.8s ease;
+      position: relative;
+    }
+
+    body.fade-in {
+      opacity: 1;
+    }
+
+    .fade-out {
+      opacity: 0 !important;
+      transition: opacity 0.6s ease;
+    }
+
+    #bg-video {
+      position: fixed;
+      top: 0;
+      left: 0;
+      min-width: 100%;
+      min-height: 100%;
+      object-fit: cover;
+      z-index: -2;
+      filter: blur(6px);
+      opacity: 0;
+      animation: fadeIn 1s ease forwards;
+    }
+
+    .overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 100%;
+      width: 100%;
+      background: rgba(44, 62, 80, 0.5);
+      z-index: -1;
+      opacity: 0;
+      animation: fadeIn 1s ease forwards;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    @keyframes popIn {
+      from {
+        transform: scale(0.9);
+        opacity: 0;
+      }
+      to {
+        transform: scale(1);
+        opacity: 1;
+      }
+    }
+
+    .message {
+      background: white;
+      padding: 40px;
+      border-radius: 10px;
+      box-shadow: 0 0 15px rgba(0,0,0,0.1);
+      text-align: center;
+      max-width: 90%;
+      width: 400px;
+      z-index: 2;
+      animation: popIn 0.8s ease forwards;
+    }
+
+    .message h1 {
+      color: #2c3e50;
+      font-size: 28px;
+    }
+
+    .message p {
+      margin-top: 10px;
+      color: #7f8c8d;
+      font-size: 16px;
+    }
+
+    .home-btn {
+      display: inline-block;
+      margin-top: 25px;
+      background-color: #1abc9c;
+      color: white;
+      padding: 12px 24px;
+      text-decoration: none;
+      border-radius: 6px;
+      font-size: 16px;
+      transition: background-color 0.3s ease;
+      cursor: pointer;
+    }
+
+    .home-btn:hover {
+      background-color: #16a085;
+    }
+
+    @media (max-width: 480px) {
+      .message {
+        padding: 25px;
+      }
+
+      .home-btn {
+        padding: 10px 20px;
+        font-size: 15px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <video autoplay muted loop playsinline id="bg-video">
+    <source src="c:/Users/OLDCONF/Desktop/html/plotify.mp4" type="video/mp4">
+    Your browser does not support HTML5 video.
+  </video>
+
+  <div class="overlay"></div>
+
+  <div class="message">
+    <h1>Thank You!</h1>
+    <p>Your property has been successfully listed on Plotify.</p>
+    <button class="home-btn" onclick="goToDashboard()">Go to Dashboard</button>
+  </div>
+
+  <script>
+    
+    window.onload = () => {
+      document.body.classList.add("fade-in");
+
+      
+      setTimeout(() => {
+        goToDashboard();
+      }, 5000);
+    };
+
+    function goToDashboard() {
+      document.body.classList.remove("fade-in");
+      document.body.classList.add("fade-out");
+      setTimeout(() => {
+        window.location.href = "dashboard.html";
+      }, 600);
+    }
+  </script>
+</body>
+</html>

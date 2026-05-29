@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Plotify | Explore Plots</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #f4f6f7;
+      opacity: 0;
+      animation: fadeIn 1s ease forwards;
+      transition: opacity 0.5s ease;
+    }
+
+    @keyframes fadeIn {
+      to {
+        opacity: 1;
+      }
+    }
+
+    header {
+      background-color: #2c3e50;
+      color: white;
+      padding: 20px 30px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+    }
+
+    .logo img {
+      height: 50px;
+      margin-right: 15px;
+    }
+
+    .logo h1 {
+      font-size: 26px;
+      color: white;
+    }
+
+    .tagline {
+      font-size: 13px;
+      color: #bdc3c7;
+    }
+
+    .container {
+      max-width: 1000px;
+      margin: 30px auto;
+      padding: 20px;
+    }
+
+    .plot-card {
+      background-color: #ffffff;
+      border-radius: 12px;
+      padding: 20px;
+      margin-bottom: 30px;
+      box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .plot-card:hover {
+      transform: scale(1.02);
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
+    }
+
+    .plot-card img {
+      max-width: 100%;
+      height: auto;
+      margin-top: 15px;
+      border-radius: 8px;
+    }
+
+    .plot-card b {
+      color: #2c3e50;
+    }
+
+    h1 {
+      color: #2c3e50;
+    }
+
+    .pagination {
+      display: flex;
+      justify-content: center;
+      margin-top: 40px;
+      gap: 10px;
+    }
+
+    .pagination a {
+      color: #2c3e50;
+      text-decoration: none;
+      padding: 10px 18px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      font-weight: bold;
+      transition: background-color 0.3s ease, color 0.3s ease;
+    }
+
+    .pagination a:hover {
+      background-color: #1abc9c;
+      color: white;
+    }
+
+    .pagination .active {
+      background-color: #1abc9c;
+      color: white;
+      border: 1px solid #1abc9c;
+    }
+
+    footer {
+      background-color: #2c3e50;
+      color: white;
+      padding: 40px 20px;
+      margin-top: 60px;
+    }
+
+    .footer-content {
+      max-width: 1100px;
+      margin: auto;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 30px;
+    }
+
+    .footer-section {
+      flex: 1;
+      min-width: 220px;
+    }
+
+    .footer-bottom {
+      text-align: center;
+      margin-top: 30px;
+      font-size: 14px;
+      color: #bdc3c7;
+    }
+
+    @media (max-width: 768px) {
+      .plot-card {
+        padding: 15px;
+      }
+
+      header,
+      .container {
+        padding: 15px;
+      }
+
+      .footer-content {
+        flex-direction: column;
+        text-align: center;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <div class="logo">
+
+    <img src="assets/images/plotify.png" alt="Plotify Logo" />
+
+    <div>
+      <h1>Plotify</h1>
+      <div class="tagline">Turning Plots Into Prosperity</div>
+    </div>
+
+  </div>
+</header>
+
+<div class="container">
+
+  <center>
+    <h1>Find the Perfect Piece of Land</h1>
+  </center>
+
+  <br><br>
+
+  <div class="plot-card">
+    <b>Location:</b> Alandi Road, Pune<br>
+    <b>Size:</b> 1,800 sq. ft.<br>
+    <b>Owner:</b> Mr. Kiran Gawade<br>
+    <b>Contact:</b> +91 98123 45678<br>
+    <b>7/12 उतारा क्रमांक:</b> MH/PN/2025/00008<br>
+    <b>नोंदणी क्रमांक:</b> REG-00012-2020<br>
+    <b>Description:</b> Premium plot in a fast-developing area close to schools and markets. Perfect for family homes.<br>
+    <b>Starting Price:</b> ₹ 36 L<br>
+
+    <img src="assets/images/img1.jpg" alt="Plot Image 1">
+  </div>
+
+  <div class="plot-card">
+    <b>Location:</b> Badlapur, Thane<br>
+    <b>Size:</b> 6,000 sq. ft.<br>
+    <b>Owner:</b> Mrs. Savita Gaikwad<br>
+    <b>Contact:</b> +91 90210 22210<br>
+    <b>7/12 उतारा क्रमांक:</b> MH/PN/2025/00022<br>
+    <b>नोंदणी क्रमांक:</b> REG-00015-2019<br>
+    <b>Description:</b> Near railway station and town center, ideal for residential or rental project development.<br>
+    <b>Starting Price:</b> ₹ 84 L<br>
+
+    <img src="assets/images/img2.jpg" alt="Plot Image 2">
+  </div>
+
+  <div class="plot-card">
+    <b>Location:</b> Wai, Satara<br>
+    <b>Size:</b> 9,000 sq. ft.<br>
+    <b>Owner:</b> Mr. Dhananjay More<br>
+    <b>Contact:</b> +91 99874 11233<br>
+    <b>7/12 उतारा क्रमांक:</b> MH/PN/2025/00030<br>
+    <b>नोंदणी क्रमांक:</b> REG-00018-2023<br>
+    <b>Description:</b> Located near Krishna River with scenic views, perfect for a resort or holiday home.<br>
+    <b>Starting Price:</b> ₹ 1.4 Cr<br>
+
+    <img src="assets/images/img3.jpg" alt="Plot Image 3">
+  </div>
+
+  <div class="plot-card">
+    <b>Location:</b> MIDC Area, Solapur<br>
+    <b>Size:</b> 4,500 sq. ft.<br>
+    <b>Owner:</b> Mrs. Anita Joshi<br>
+    <b>Contact:</b> +91 98765 43210<br>
+    <b>7/12 उतारा क्रमांक:</b> MH/PN/2025/00014<br>
+    <b>नोंदणी क्रमांक:</b> REG-00020-2016<br>
+    <b>Description:</b> Excellent for setting up warehouse or light industry unit. Road-facing commercial plot.<br>
+    <b>Starting Price:</b> ₹ 72 L<br>
+
+    <img src="assets/images/img6.webp" alt="Plot Image 4">
+  </div>
+
+  <div class="plot-card">
+    <b>Location:</b> CIDCO, Aurangabad<br>
+    <b>Size:</b> 1.5 acre<br>
+    <b>Owner:</b> Mr. Nilesh Pawar<br>
+    <b>Contact:</b> +91 99333 11223<br>
+    <b>7/12 उतारा क्रमांक:</b> MH/PN/2025/00002<br>
+    <b>नोंदणी क्रमांक:</b> REG-00025-2025<br>
+    <b>Description:</b> Located in prime residential zone, excellent for gated community project or villas.<br>
+    <b>Starting Price:</b> ₹ 6.9 Cr<br>
+
+    <img src="assets/images/img100.webp" alt="Plot Image 5">
+  </div>
+
+</div>
+
+<div class="pagination">
+  <a href="exploreplots.html">1</a>
+  <a href="exploreplots2.html" class="active">2</a>
+  <a href="exploreplots3.html">3</a>
+</div>
+
+<footer>
+
+  <div class="footer-content">
+
+    <div class="footer-section">
+      <h3>Plotify</h3>
+      <p>Turning Plots Into Prosperity</p>
+      <p>Your trusted platform to buy, sell, and explore verified land listings across India.</p>
+    </div>
+
+    <div class="footer-section">
+      <h4>Contact Us</h4>
+      <p>Email: support@plotify.in</p>
+      <p>Phone: +91 9579567490</p>
+      <p>Address: Pune-411021, Maharashtra, India</p>
+    </div>
+
+  </div>
+
+  <div class="footer-bottom">
+    &copy; 2025 Plotify. All rights reserved.
+  </div>
+
+</footer>
+
+</body>
+</html>

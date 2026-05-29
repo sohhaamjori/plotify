@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Welcome to Plotify</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(to right, #2c3e50, #34495e);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      overflow: hidden;
+      opacity: 0;
+      transition: opacity 1s ease;
+    }
+
+    body.loaded {
+      opacity: 1;
+    }
+
+    @keyframes fadeInBackground {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes fadeInOut {
+      0%, 100% { opacity: 0.2; }
+      50% { opacity: 1; }
+    }
+
+    @keyframes fadeOut {
+      from { opacity: 1; transform: scale(1); }
+      to { opacity: 0; transform: scale(0.98); }
+    }
+
+    .fade-out {
+      animation: fadeOut 1s ease forwards;
+    }
+
+    .card {
+      background-color: white;
+      border-radius: 15px;
+      padding: 40px;
+      text-align: center;
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+      width: 90%;
+      max-width: 400px;
+      opacity: 0;
+      animation: fadeIn 1s ease forwards;
+      animation-delay: 1s;
+    }
+
+    .card img {
+      width: 200px;
+      height: auto;
+      margin-bottom: 50px;
+    }
+
+    .card h1 {
+      margin: 10px 0;
+      font-size: 2em;
+      color: #2c3e50;
+    }
+
+    .card p {
+      font-size: 1em;
+      color: #555;
+      margin-bottom: 30px;
+      font-style: italic;
+      animation: fadeInOut 3s ease-in-out infinite;
+    }
+
+    .enter-btn {
+      background: linear-gradient(to right, #2980b9, #03394d);
+      color: white;
+      border: none;
+      padding: 14px 30px;
+      border-radius: 50px;
+      font-size: 1.1em;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      font-weight: bold;
+      letter-spacing: 1px;
+    }
+
+    .enter-btn:hover {
+      background: linear-gradient(to right, #062c6d, #6a11cb);
+      transform: scale(1.05);
+    }
+
+    @media (max-width: 500px) {
+      .card {
+        padding: 20px;
+      }
+
+      .card h1 {
+        font-size: 1.5em;
+      }
+    }
+
+    #bg-video {
+      position: fixed;
+      top: 0;
+      left: 0;
+      min-width: 100%;
+      min-height: 100%;
+      object-fit: cover;
+      z-index: -2;
+      filter: blur(6px);
+      opacity: 0;
+      animation: fadeInBackground 1s ease forwards;
+    }
+
+    .overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 100%;
+      width: 100%;
+      background: rgba(44, 62, 80, 0.6);
+      z-index: -1;
+      opacity: 0;
+      animation: fadeInBackground 1s ease forwards;
+    }
+
+    #loader {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: #2c3e50;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 9999;
+    }
+
+    .spinner {
+      border: 6px solid #f3f3f3;
+      border-top: 6px solid #2980b9;
+      border-radius: 50%;
+      width: 40px;
+      height: 40px;
+      animation: spin 1s linear infinite;
+    }
+
+    @keyframes spin {
+      0% { transform: rotate(0deg);}
+      100% { transform: rotate(360deg);}
+    }
+
+    .floating-contact {
+      font: bolder;
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background-color: #2980b9;
+      color: white;
+      padding: 15px 18px;
+      border-radius: 50%;
+      text-decoration: none;
+      font-size: 18px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+      z-index: 10;
+    }
+  </style>
+</head>
+
+<body>
+
+<div id="loader">
+  <div class="spinner"></div>
+</div>
+
+<a href="contactsupport.html" class="floating-contact" title="Contact Us">
+  📩 Contact Us
+</a>
+
+<video autoplay muted loop playsinline id="bg-video">
+  <source src="assets/videos/plotify.mp4" type="video/mp4"> 
+</video>
+
+<div class="overlay"></div>
+
+<div class="card">
+  <img src="assets/images/plotify.png" alt="Plotify Logo" />
+
+  <h1>Plotify</h1>
+
+  <p>Turning Plots Into Prosperity</p>
+
+  <button class="enter-btn" onclick="fadeOutAndRedirect()">
+    Enter Plotify
+  </button>
+</div>
+
+<script>
+  window.onload = function () {
+    document.body.classList.add('loaded');
+    document.getElementById('loader').style.display = 'none';
+  };
+
+  function fadeOutAndRedirect() {
+    document.body.classList.remove('loaded');
+    document.body.classList.add('fade-out');
+
+    setTimeout(() => {
+      window.location.href = 'plotify1.html';
+    }, 1000);
+  }
+
+  function toggleDarkMode() {
+    document.body.classList.toggle('dark-mode');
+  }
+</script>
+
+</body>
+</html>

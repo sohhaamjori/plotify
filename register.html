@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Register | Plotify</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: linear-gradient(to right, #2c3e50, #34495e);
+      color: white;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+
+    .form-container {
+      background: rgba(255, 255, 255, 0.1);
+      padding: 30px;
+      border-radius: 10px;
+      backdrop-filter: blur(5px);
+    }
+
+    input, button {
+      width: 100%;
+      padding: 10px;
+      margin: 10px 0;
+      border: none;
+      border-radius: 6px;
+    }
+
+    input {
+      background-color: #ecf0f1;
+      color: #2c3e50;
+    }
+
+    button {
+      background-color: #1abc9c;
+      color: white;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #16a085;
+    }
+
+    .link {
+      color: #1abc9c;
+      text-decoration: none;
+      display: block;
+      margin-top: 10px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="form-container">
+    <h2>Register to Plotify</h2>
+    <input type="text" id="name" placeholder="Full Name" required>
+    <input type="email" id="email" placeholder="Email" required>
+    <input type="password" id="password" placeholder="Password" required>
+    <input type="url" id="photoUrl" placeholder="Photo URL (optional)">
+    <button onclick="register()">Register</button>
+    <a class="link" href="login.html">Already have an account? Login</a>
+  </div>
+
+  <script>
+    function register() {
+      const name = document.getElementById("name").value.trim();
+      const email = document.getElementById("email").value.trim();
+      const password = document.getElementById("password").value;
+      const photoUrl = document.getElementById("photoUrl").value.trim() || "https://via.placeholder.com/100";
+
+      if (!name || !email || !password) {
+        alert("Please fill in all fields.");
+        return;
+      }
+
+      const existingUser = localStorage.getItem("plotifyUser");
+      if (existingUser) {
+        const existing = JSON.parse(existingUser);
+        if (existing.email === email) {
+          alert("Email already registered. Please login.");
+          return;
+        }
+      }
+
+      const user = { name, email, password, photo: photoUrl };
+      localStorage.setItem("plotifyUser", JSON.stringify(user));
+      alert("Registration successful!");
+      window.location.href = "login.html";
+    }
+  </script>
+
+</body>
+</html>

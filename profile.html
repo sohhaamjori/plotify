@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Your Profile - Plotify</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(to right, #2c3e50, #34495e);
+      margin: 0;
+      padding: 0;
+      color: white;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .profile-container {
+      background-color: rgba(255, 255, 255, 0.1);
+      padding: 40px;
+      border-radius: 12px;
+      text-align: center;
+      backdrop-filter: blur(6px);
+      width: 320px;
+    }
+
+    h1 {
+      margin-bottom: 20px;
+    }
+
+    .profile-info {
+      font-size: 18px;
+      line-height: 1.6;
+    }
+
+    .action-btn {
+      margin-top: 15px;
+      padding: 10px 20px;
+      background-color: #1abc9c;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      font-weight: bold;
+      width: 100%;
+    }
+
+    .action-btn:hover {
+      background-color: #16a085;
+    }
+
+    .logout-btn {
+      background-color: #e74c3c;
+    }
+
+    .logout-btn:hover {
+      background-color: #c0392b;
+    }
+
+    a.button-link {
+      text-decoration: none;
+      display: block;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="profile-container">
+    <h1>Your Profile</h1>
+    <div class="profile-info">
+      <p><strong>Name:</strong> <span id="userName"></span></p>
+      <p><strong>Email:</strong> <span id="userEmail"></span></p>
+    </div>
+
+    <button class="action-btn" onclick="editProfile()">Edit Profile</button>
+    <a href="change-password.html" class="button-link">
+      <button class="action-btn">Change Password</button>
+    </a>
+    <button class="action-btn logout-btn" onclick="logout()">Logout</button>
+  </div>
+
+  <script>
+    const user = JSON.parse(localStorage.getItem("plotifyUser"));
+
+    if (!user) {
+      alert("You are not logged in.");
+      window.location.href = "login.html";
+    } else {
+      document.getElementById("userName").textContent = user.name;
+      document.getElementById("userEmail").textContent = user.email;
+    }
+
+    function logout() {
+      localStorage.removeItem("plotifyUser");
+      alert("Logged out successfully.");
+      window.location.href = "login.html";
+    }
+
+    function editProfile() {
+      const newName = prompt("Enter new name:", user.name);
+      const newEmail = prompt("Enter new email:", user.email);
+
+      if (newName && newEmail) {
+        user.name = newName;
+        user.email = newEmail;
+        localStorage.setItem("plotifyUser", JSON.stringify(user));
+        document.getElementById("userName").textContent = newName;
+        document.getElementById("userEmail").textContent = newEmail;
+        alert("Profile updated!");
+      }
+    }
+  </script>
+
+</body>
+</html>
